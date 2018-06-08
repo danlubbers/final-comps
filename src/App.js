@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Dashboard from './Component/Dashboard';
+import Dashboard from './Component/Dashboard/Dashboard';
 
 class App extends Component {
   render() {
@@ -10,9 +10,10 @@ class App extends Component {
         <header className="App-header">
           <h1>SANDBOX HEADER</h1>
         </header>
-        <body>
+        
+        <div className='Dashboard'>
          <Dashboard />
-       </body>
+        </div>
       </div>
     );
   }
