@@ -24,7 +24,7 @@ class Dashboard extends Component {
          if (this.props.products) {
             var productsArray = this.props.products.map((element, index)=> {
                 return(
-                    <Link to={`/allProducts/${element.product_id}`} key={index} className="single-product">
+                    <Link to={`/products/${element.product_id}`} key={index} className="single-product">
                     <div>
                         <img className="array-image" src={element.image} alt="product"/>
                         <div className="title-price">

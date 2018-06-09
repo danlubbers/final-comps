@@ -110,11 +110,12 @@ app.get('/logout', function(req, res) {
 
 // Add Front-end Endpoints here:
 app.get(`/api/getAllProducts`, controller.getAllProducts)
+app.get(`/api/getOneProduct/:id`, controller.getOneProduct)
 // app.post()
-// app.put()
+app.put(`/api/editProductByQuery/:id`, controller.editProduct)
 // app.delete()
 
 massive(CONNECTION_STRING).then(db=>{
       app.set('db', db);
-      app.listen(SERVER_PORT, ()=>{console.log(`1984 is listening on PORT: ${SERVER_PORT}`)});
+      app.listen(SERVER_PORT, ()=>{console.log(`It would be so nice if something made sense for a change on PORT: ${SERVER_PORT}`)});
 })

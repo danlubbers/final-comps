@@ -1,3 +1,5 @@
+-- ONE TO MANY --
+
 -- JOIN --
 select * from products
 join cart on cart.product_id = products.product_id

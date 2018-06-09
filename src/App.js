@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Dashboard from './Component/Dashboard/Dashboard';
+import route from './route';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
         </header>
         
         <div className='Dashboard'>
-         <Dashboard />
+         {route}
         </div>
       </div>
     );
