@@ -6,14 +6,21 @@ const express = require('express'),
       session = require('express-session'),
       Auth0Strategy = require('passport-auth0'),
       passport = require('passport'),
-      cors = require('cors');
+      cors = require('cors'),
+      requestMiddleware = require('./middleware');
 
 const app = express();
+
+function middleware(req, res, next) {
+      console.log('Top Level Middleware');
+      next();
+}
 
 const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, DOMAIN, CLIENT_ID, CLIENT_SECRET, CALLBACK_URL,} = process.env;
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(middleware);
 
 // Allows use of Sessions
 app.use(session({
@@ -109,10 +116,10 @@ app.get('/logout', function(req, res) {
 
 
 // Add Front-end Endpoints here:
-app.get(`/api/getAllProducts`, controller.getAllProducts)
-app.get(`/api/getOneProduct/:id`, controller.getOneProduct)
+app.get(`/api/getAllProducts`, requestMiddleware, controller.getAllProducts)
+app.get(`/api/getOneProduct/:id`, requestMiddleware, controller.getOneProduct)
 // app.post()
-app.put(`/api/editProductByQuery/:id`, controller.editProduct)
+app.put(`/api/editProductByQuery/:id`, requestMiddleware, controller.editProduct)
 // app.delete()
 
 massive(CONNECTION_STRING).then(db=>{

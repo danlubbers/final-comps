@@ -16,7 +16,7 @@ class Product extends Component {
             var productArray = this.props.product.map((element, index)=> {
                 return(
                     
-                    <div>
+                    <div key={index}>
                       <img className="array-image" src={element.image} alt="product"/>
                         <div className="title-price">
                             <p className='category-title'>{element.title}</p>
