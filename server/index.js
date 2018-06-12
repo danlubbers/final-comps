@@ -117,9 +117,9 @@ app.get('/logout', function(req, res) {
 
 // Add Front-end Endpoints here:
 app.get(`/api/getAllProducts`, requestMiddleware, controller.getAllProducts)
-app.get(`/api/getOneProduct/:id`, requestMiddleware, controller.getOneProduct)
+app.get(`/api/getOneProduct/:id`, controller.getOneProduct)
 // app.post()
-app.put(`/api/editProductByQuery/:id`, requestMiddleware, controller.editProduct)
+app.put(`/api/editProductByQuery/:id`, controller.editProduct) 
 // app.delete()
 
 massive(CONNECTION_STRING).then(db=>{

@@ -24,15 +24,15 @@ class Dashboard extends Component {
          if (this.props.products) {
             var productsArray = this.props.products.map((element, index)=> {
                 return(
-                    <Link to={`/products/${element.product_id}`} key={index} className="single-product">
+                    <div key={index} className="single-product">
                     <div>
-                        <img className="array-image" src={element.image} alt="product"/>
+                        <Link to={`/products/${element.product_id}`}> <img className="array-image" src={element.image} alt="product"/></Link>
                         <div className="title-price">
                             <p className='category-title'>{element.title}</p>
                             <p className='category-price'>${element.price} USD</p>
                         </div>
                         </div>
-                    </Link>
+                    </div>
                 )
             })}
             // console.log(productsArray)

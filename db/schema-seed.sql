@@ -5,28 +5,49 @@ create table users (
     username varchar(45)
 );
 
+-- Users Info table for one to one
+create table info (
+    info_id serial primary key, 
+    email VARCHAR(50),
+    users_id INTEGER REFERENCES users (user_id)
+)
+
+insert into info (email, users_id) values ('lubbers.dan@gmail.com', 1);
+
+-- SQLtabs One to One
+select * from users
+inner join info on info.users_id = users.user_id;
+
+-- Postgres way to do the same thing above for one to one
+select auth_id, email
+from users, info
+where users.user_id = info.users_id
+
+
+
+
 -- customer table for one to one
-create table customers (
-    user_id serial primary key,
-    name text,
-    address_id text 
-)
+-- create table customers (
+--     user_id serial primary key,
+--     name text,
+--     address_id text 
+-- )
 
-insert into customers (name, address_id) values ('Dan Lubbers', 1);
-insert into customers (name, address_id) values ('Sunny Ra', 2);
-insert into customers (name, address_id) values ('Que Nguyen', 3);
-insert into customers (name, address_id) values ('Sarah Ventura', 4);
+-- insert into customers (name, address_id) values ('Dan Lubbers', 1);
+-- insert into customers (name, address_id) values ('Sunny Ra', 2);
+-- insert into customers (name, address_id) values ('Que Nguyen', 3);
+-- insert into customers (name, address_id) values ('Sarah Ventura', 4);
 
-create table addresses (
-    user_id serial primary key,
-    address_id text REFERENCES customers (address_id),
-    address text
-)
+-- create table addresses (
+--     user_id serial primary key,
+--     address_id text REFERENCES customers (address_id),
+--     address text
+-- )
 
-insert into addresses (address) values ('Pomeroy Dr');
-insert into addresses (address) values ('Sunfield Circle');
-insert into addresses (address) values ('Boston');
-insert into addresses (address) values ('Lanesville');
+-- insert into addresses (address) values ('Pomeroy Dr');
+-- insert into addresses (address) values ('Sunfield Circle');
+-- insert into addresses (address) values ('Boston');
+-- insert into addresses (address) values ('Lanesville');
 
 -- Products table
 create table products (
