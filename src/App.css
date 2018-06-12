@@ -2,31 +2,73 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
-  background-color: #222;
+  /* 23F */
+  background-image: url(https://www.textureking.com/content/img/stock/big/DSC_4408.JPG);
   height: 150px;
   padding: 20px;
-  color: white;
+  /* color: white; */
 }
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
-}
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* 22C-2 */
+.Dashboard {
+  /* 25C-1 */
+  position: relative;
+  background-color: #f7f7f7f7;
 }
 
 .array-image {
+  /* 25D */
+  float: none;
   width: 200px;
+  box-shadow: 5px 10px 8px #666 ;
+  /* 25F */
+  /* display: none; */
   }
+  
+  /* 24C-F 30C 30D*/
+  .single-product {
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 25px;
+    box-sizing: content-box;
+    background: linear-gradient(to right, red, orange);
+    
+  }
+
+
+/* 22C-5 */
+ article + p {
+    color: red;
+  }
+
+/* FLEXBOX 27C - G */
+ .header-list {
+   /* 25C-2 */
+  /* position: absolute; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+/* 22C-1 & 22C-4 30E*/
+li > #text {
+  font-weight: bold;
+  font-size: 2em;
+  color: rgb(207, 206, 101);
+  text-shadow: 5px 5px black;
+}
+
+
+footer {
+  /* 25C-3 */
+  position: fixed;
+  width: 100vw;
+  /* 23E */
+  background-color: #999;
+}

@@ -27,7 +27,7 @@ class Product extends Component {
                 )
             })}
         return(
-            <div>
+            <div className='product-array'>
                 {productArray}
             </div>
         )

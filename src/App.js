@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './Component/Header/Header';
+import Footer from './Component/Footer/Footer';
 
 import route from './route';
 
@@ -7,14 +9,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {/* ID 55C */}
+      {/* 55C */}
         <header className="App-header">
-          <h1>SANDBOX HEADER</h1>
+        {/* 54-G */}
+          <Header />
         </header>
-        
-        <dashboard className='Dashboard'>
+        {/* 55D */}
+        <div className='Dashboard'>
          {route}
-        </dashboard>
+        </div>
+
+        <div className='footer'>
+          <Footer />
+        </div>
       </div>
     );
   }
