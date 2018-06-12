@@ -7,13 +7,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      {/* ID 55C */}
         <header className="App-header">
           <h1>SANDBOX HEADER</h1>
         </header>
         
-        <div className='Dashboard'>
+        <dashboard className='Dashboard'>
          {route}
-        </div>
+        </dashboard>
       </div>
     );
   }
