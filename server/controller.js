@@ -1,6 +1,7 @@
 module.exports = {
 
     getAllProducts: (req, res) => {
+        console.log(req.session)
         const dbInstance = req.app.get('db');
         // console.log(products)
         dbInstance.getAllProducts().then(products => res.status(200).send

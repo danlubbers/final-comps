@@ -7,7 +7,7 @@ const express = require('express'),
       Auth0Strategy = require('passport-auth0'),
       passport = require('passport'),
       cors = require('cors'),
-      cookieParser = require('cookie-parser'),
+      checkSessions = require('./middlewares-session/check-for-sessions'),
       requestMiddleware = require('./middleware');
 
 const app = express();
@@ -17,9 +17,8 @@ function middleware(req, res, next) {
       next();
 }
 
-const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, DOMAIN, CLIENT_ID, CLIENT_SECRET, CALLBACK_URL,} = process.env;
+const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT, DOMAIN, CLIENT_ID, CLIENT_SECRET, CALLBACK_URL} = process.env;
 
-app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors());
 app.use(middleware);
@@ -28,8 +27,11 @@ app.use(middleware);
 app.use(session({
       secret: SESSION_SECRET,
       resave: false,
-      saveUninitialized: true
-}))
+      saveUninitialized: true,
+      cookie: {maxAge: 20000}
+}));
+
+app.use(checkSessions);
 
 app.use(passport.initialize());
 // Interact with sessions
@@ -118,20 +120,21 @@ app.get('/logout', function(req, res) {
 
 
 // Add Front-end Endpoints here:
+
 app.get(`/api/getAllProducts`, requestMiddleware, controller.getAllProducts)
 app.get(`/api/getOneProduct/:id`, controller.getOneProduct)
 
 // STORING SESSIONS
-app.get(`/`, function (req, res) {
-      console.log(req.session)
-      if(req.session.page_views){
-          req.session.page_views++;
-          res.send(`You visited this page ${req.session.page_views} times`)
-      } else {
-          req.session.page_views = 1;
-          res.send(`Welcome to this page for the first time!`);
-      }
-  })
+// app.get(`/`, function(req, res) {
+//       console.log(req.session)
+//       if(req.session.page_views){
+//           req.session.page_views++;
+//           res.send(`You visited this page ${req.session.page_views} times`)
+//       } else {
+//           req.session.page_views = 1;
+//           res.send(`Welcome to this page for the first time!`);
+//       }
+//   })
 
 // app.post()
 app.put(`/api/editProductByQuery/:id`, controller.editProduct) 
