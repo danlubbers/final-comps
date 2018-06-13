@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Component/Header/Header';
-import Footer from './Component/Footer/Footer';
+// import Footer from './Component/Footer/';
 
 import route from './route';
 
@@ -20,7 +20,7 @@ class App extends Component {
         </div>
 
         <div className='footer'>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
     );

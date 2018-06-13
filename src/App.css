@@ -9,8 +9,10 @@
   padding: 20px;
   /* color: white; */
 }
-
-
+/* 29D */
+@media screen {
+  body { font-size: 2em; }
+}
 
 /* 22C-2 */
 .Dashboard {
@@ -27,6 +29,14 @@
   /* 25F */
   /* display: none; */
   }
+
+  /* 29C */
+  @media (min-width: 1000px) {
+    .array-image{
+      width: 400px;
+    }
+  }
+
   
   /* 24C-F 30C 30D*/
   .single-product {
@@ -69,6 +79,7 @@ footer {
   /* 25C-3 */
   position: fixed;
   width: 100vw;
+  height: 100px;
   /* 23E */
   background-color: #999;
 }

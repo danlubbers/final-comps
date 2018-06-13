@@ -17,6 +17,7 @@ class Dashboard extends Component {
             var productsArray = this.props.products.map((element, index)=> {
                 return(
                     // 54D-2
+                    
                     <section key={index} className="single-product">
                     {/* 54C-3 & 54C-2 */}
                     <span>
